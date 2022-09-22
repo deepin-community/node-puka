@@ -1,0 +1,28 @@
+cache: node_modules
+environment:
+  matrix:
+  - node_version: 14
+    include_spawn: true
+  - node_version: 12
+  - node_version: 10
+  - node_version: 8
+    patch_package: 1
+  - node_version: 6
+    patch_package: 1
+  - node_version: 4
+    patch_package: 1
+skip_tags: true
+init:
+- ps: Install-Product node $env:node_version
+- ps: if (($env:node_version -as [int]) -lt 6) { npm -g install yarn@1.12.3 }
+install:
+- ps: $env:package_version = (Get-Content -Raw -Path package.json | ConvertFrom-Json).version
+- ps: Update-AppveyorBuild -Version "$env:package_version.$env:APPVEYOR_BUILD_NUMBER"
+- cmd: IF "%patch_package%"=="1" (yarn --cwd scripts/patch-package)
+- cmd: IF "%patch_package%"=="1" (node scripts/patch-package)
+- cmd: IF "%patch_package%"=="1" (yarn --no-lockfile) ELSE (yarn)
+build: off
+test_script:
+- cmd: yarn --cwd scripts/appveyor-run-tests
+- cmd: node scripts/appveyor-run-tests
+- cmd: yarn codecov

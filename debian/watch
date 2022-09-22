@@ -1,0 +1,4 @@
+version=4
+opts=repacksuffix=+dfsg,repack,compression=xz,dversionmangle=auto,\
+  filenamemangle=s/.*v(\d\S+)\.tar\.gz/puka-$1\.tar\.gz/g \
+  https://gitlab.com/rhendric/puka/-/tags?sort=updated_desc .*v(\d\S+)\.tar\.gz

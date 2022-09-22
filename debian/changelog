@@ -1,0 +1,54 @@
+node-puka (1.0.1+dfsg-2) unstable; urgency=medium
+
+  * Team upload
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Repository, Repository-Browse.
+
+  [ Pirate Praveen ]
+  * @rollup/plugin-babel is now available (revert patch)
+  * Bump Standards-Version to 4.5.1 (no changes needed)
+  * Bump debhelper compatibility level to 13
+
+ -- Pirate Praveen <praveen@debian.org>  Fri, 01 Jan 2021 22:16:29 +0530
+
+node-puka (1.0.1+dfsg-1) unstable; urgency=medium
+
+  * Team upload
+  * Update watch file url to match new gitlab tags pages scheme
+  * New upstream version 1.0.1+dfsg
+  * Refresh patches (drop babel 7 patches, applied upstream)
+  * Remove only dist/index.js in clean
+  * Add dversionmangle=auto to watch file
+
+ -- Pirate Praveen <praveen@debian.org>  Sat, 16 May 2020 17:14:57 +0530
+
+node-puka (1.0.0+dfsg-2) unstable; urgency=medium
+
+  * Team upload
+
+  [ Debian Janitor ]
+  * Bump debhelper from old 11 to 12.
+  * Set debhelper-compat version in Build-Depends.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit.
+
+  [ Xavier Guimard ]
+  * Declare compliance with policy 4.5.0
+  * Bump debhelper compatibility level to 12
+  * Use pkg-js-tools auto install
+  * Add "Rules-Requires-Root: no"
+  * Add debian/gbp.conf
+  * Update copyright
+
+  [ Pirate Praveen ]
+  * Build with babel 7 (some babel 6 modules are still needed)
+  * Don't ship yarn.lock
+  * Replace all babel 6 plugins with babel 7
+
+ -- Pirate Praveen <praveen@debian.org>  Sun, 03 May 2020 18:53:40 +0530
+
+node-puka (1.0.0+dfsg-1) unstable; urgency=low
+
+  * Initial release (Closes: #886849)
+
+ -- Paolo Greppi <paolo.greppi@libpf.com>  Fri, 27 Apr 2018 17:13:52 +0200

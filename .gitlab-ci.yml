@@ -1,0 +1,57 @@
+default:
+  image: node:14
+
+  before_script:
+  - yarn
+
+  cache:
+    paths:
+    - node_modules/
+
+workflow:
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
+    - when: always
+
+test:node:14:
+  script:
+  - yarn test:spawn
+  - yarn test:coverage
+  - yarn codecov -t $codecov_token
+
+test:coverage:node:12: &node-version-test-job
+  image: node:12
+  script:
+  - yarn test:coverage
+  - yarn codecov -t $codecov_token
+
+test:coverage:node:10:
+  <<: *node-version-test-job
+  image: node:10
+
+test:coverage:node:8:
+  <<: *node-version-test-job
+  image: node:8
+  before_script: &patch-package
+  - yarn --cwd scripts/patch-package
+  - node scripts/patch-package
+  - yarn --no-lockfile
+
+test:coverage:node:6: &node-version-test-job-old
+  image: node:6
+  before_script: *patch-package
+
+  script:
+  - yarn test:coverage
+  - yarn codecov -- -t $codecov_token
+
+test:coverage:node:4:
+  <<: *node-version-test-job-old
+  image: node:4
+
+lint:
+  script:
+  - yarn lint
+  - yarn dist
+  - git status --porcelain README.md dist/index.js | if read; then echo "generated files are out of date"; false; fi

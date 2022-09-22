@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "tap-appveyor": "^0.0.3",
+    "tap-merge": "^0.3.1"
+  }
+}

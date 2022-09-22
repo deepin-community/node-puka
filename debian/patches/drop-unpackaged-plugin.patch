@@ -1,0 +1,27 @@
+This plugin is not available in debian
+
+--- a/rollup.config.js
++++ b/rollup.config.js
+@@ -1,9 +1,11 @@
+ import babel from '@rollup/plugin-babel';
+-import cleanup from 'rollup-plugin-cleanup';
+ 
+ export default {
+   input: 'src/index.js',
+-  format: 'cjs',
++  output: {
++    file: 'dist/index.js',
++    format: 'cjs',
++  },
+   plugins: [
+     babel({
+       babelHelpers: 'bundled',
+@@ -12,8 +14,5 @@
+         './babel-plugin-comment-shift.js',
+       ],
+     }),
+-    cleanup({
+-      comments: /^(?:(?!eslint-)[^])*$/,
+-    }),
+   ],
+ };
