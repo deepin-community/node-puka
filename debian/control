@@ -5,9 +5,9 @@ Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.deb
 Uploaders: Paolo Greppi <paolo.greppi@libpf.com>
 Build-Depends: debhelper-compat (= 13)
  , node-rollup-plugin-babel (>= 5.2~)
- , pkg-js-tools (>= 0.9.20~)
+ , dh-sequence-nodejs
  , rollup
-Standards-Version: 4.5.1
+Standards-Version: 4.6.1
 Vcs-Browser: https://salsa.debian.org/js-team/node-puka
 Vcs-Git: https://salsa.debian.org/js-team/node-puka.git
 Homepage: https://gitlab.com/rhendric/puka
@@ -17,7 +17,8 @@ Rules-Requires-Root: no
 Package: node-puka
 Architecture: all
 Depends: ${misc:Depends}
- , nodejs
+ , nodejs:any
+Multi-Arch: foreign
 Description: Safely pass strings through shells - Node.js module
  A Node.js module that provides a simple and platform-agnostic way
  to build shell commands with arguments that pass through your shell

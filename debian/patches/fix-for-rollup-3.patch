@@ -1,0 +1,17 @@
+Description: fix for rollup 3
+Author: Yadd <yadd@debian.org>
+Bug-Debian: https://bugs.debian.org/1022696
+Forwarded: not-needed
+Last-Update: 2022-10-28
+
+--- a/rollup.config.js
++++ b/rollup.config.js
+@@ -1,6 +1,6 @@
+-import babel from '@rollup/plugin-babel';
++const babel = require('@rollup/plugin-babel');
+ 
+-export default {
++module.exports = {
+   input: 'src/index.js',
+   output: {
+     file: 'dist/index.js',
