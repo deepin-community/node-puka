@@ -11,7 +11,7 @@ License: Expat
 
 Files: debian/*
 Copyright: 2018, Paolo Greppi <paolo.greppi@libpf.com>
- 2020, Xavier Guimard <yadd@debian.org>
+ 2020, Yadd <yadd@debian.org>
 License: GPL-3.0+
 
 License: Expat

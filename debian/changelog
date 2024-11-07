@@ -1,3 +1,18 @@
+node-puka (1.0.1+dfsg-3) unstable; urgency=medium
+
+  * Team upload
+
+  [ Debian Janitor ]
+  * Apply multi-arch hints.
+    + node-puka: Add Multi-Arch: foreign.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit.
+  * Update standards version to 4.6.1, no changes needed.
+
+  [ Yadd ]
+  * Add fix for rollup 3 (Closes: #1022696)
+
+ -- Yadd <yadd@debian.org>  Fri, 28 Oct 2022 16:06:56 +0200
+
 node-puka (1.0.1+dfsg-2) unstable; urgency=medium
 
   * Team upload
